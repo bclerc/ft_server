@@ -28,7 +28,7 @@ ADD ./sources/default.conf /etc/nginx/conf.d/
 ADD ./sources/info.php /usr/share/nginx/html/
 ADD ./sources/index.php /usr/share/nginx/html/
 ADD ./sources/phpmyadmin /usr/share/nginx/html/phpmyadmin
-ADD ./sources/mariadb.sh /
+ADD ./sources/run.sh /
 ADD ./sources/wordpress /usr/share/nginx/html/
 # Launch Nginx and php    
-CMD service php7.3-fpm start && sh /mariadb.sh && nginx -g 'daemon off;'
+CMD sh /run.sh
