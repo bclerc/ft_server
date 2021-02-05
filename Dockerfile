@@ -25,13 +25,13 @@ RUN apt install -y nano php7.3 php7.3-fpm php7.3-mysql php-common php7.3-cli php
 ENV autoindex   $INDEX
 RUN rm /etc/nginx/sites-enabled/default
 RUN rm -rf /etc/nginx/conf.d/default.conf
-ADD ./sources/default.conf /etc/nginx/conf.d/
-ADD ./sources/info.php /usr/share/nginx/html/
-ADD ./sources/localhost.crt /etc/ssl/certs/
-ADD ./sources/localhost.key /etc/ssl/private/
-ADD ./sources/phpmyadmin /usr/share/nginx/html/phpmyadmin
-ADD ./sources/run.sh /
-ADD ./sources/wordpress /usr/share/nginx/html/wordpress
+ADD ./srcs/default.conf /etc/nginx/conf.d/
+ADD ./srcs/info.php /usr/share/nginx/html/
+ADD ./srcs/localhost.crt /etc/ssl/certs/
+ADD ./srcs/localhost.key /etc/ssl/private/
+ADD ./srcs/phpmyadmin /usr/share/nginx/html/phpmyadmin
+ADD ./srcs/run.sh /
+ADD ./srcs/wordpress /usr/share/nginx/html/wordpress
 # Launch Nginx and php    
-RUN mv /usr/share/nginx/html/index.html ../
+RUN rm /usr/share/nginx/html/index.html ../
 CMD sh /run.sh
